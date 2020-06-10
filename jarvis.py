@@ -40,5 +40,5 @@ async def on_message(message):
 
 		await message.channel.send(dialogues[dialogueNo])
 
-
-client.run('NzE5ODQwMDkwNzA4Mzc3NzEy.Xt9Rpg.0oo4E01oFzvu-wQqpApD7Yqm5O8')
+token = open('token', 'r').read(200)
+client.run(token)
