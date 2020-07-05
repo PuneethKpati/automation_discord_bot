@@ -3,6 +3,7 @@ import discord
 import random
 from discord.ext import commands
 
+
 dialogues = [
 "Remember, with great power comes great responsibility.",
 "YES! We know each other. He's a friend from work.",
@@ -23,7 +24,12 @@ dialogues = [
 "Puny God!"
 ]
 
+
+	
+
+token = open('token', 'r').read().strip()
 client = commands.Bot(command_prefix='Jarvis')
+
 
 @client.event
 async def on_ready():
@@ -31,14 +37,18 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+	
 
 	if message.author == client.user:
 		return 
+
+	channel = client.get_channel(719852916311326760)
+	print(channel)
+	await channel.send('Hello')
 
 	if message.content.lower().startswith('hey jarvis') :
 		dialogueNo = int(random.random()*len(dialogues))
 
 		await message.channel.send(dialogues[dialogueNo])
 
-token = open('token', 'r').read(200)
 client.run(token)
